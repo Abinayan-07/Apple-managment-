@@ -230,7 +230,7 @@ public void reset(){
         jSpinner14 = new javax.swing.JSpinner();
         jCheckBox12 = new javax.swing.JCheckBox();
         jPanel18 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnTotal = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
@@ -1129,8 +1129,13 @@ public void reset(){
 
         jPanel18.setBackground(new java.awt.Color(250, 250, 250));
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
-        jButton1.setText("Total");
+        btnTotal.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        btnTotal.setText("Total");
+        btnTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTotalActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jButton2.setText("Recepit");
@@ -1162,7 +1167,7 @@ public void reset(){
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(109, 109, 109)
@@ -1175,7 +1180,7 @@ public void reset(){
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1407,57 +1412,179 @@ public void reset(){
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jCheckBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox12ActionPerformed
-        // TODO add your handling code here:
+          int qty = Integer.parseInt(jSpinner14.getValue().toString());
+        if(qtyIsZero(qty) &&jCheckBox12.isSelected()){
+            x++;
+            if (x==1){
+                apple();
+            }
+            double price = qty*1000.00;
+            total +=price;
+            jTextArea1.setText(jTextArea1.getText()+x+"-"+jLabel012.getText()+"\t\t\t"+price+"\n");
+        } else {
+            jCheckBox12.setSelected(false);
+        }
     }//GEN-LAST:event_jCheckBox12ActionPerformed
 
     private void jCheckBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox11ActionPerformed
-        // TODO add your handling code here:
+           int qty = Integer.parseInt(jSpinner13.getValue().toString());
+        if(qtyIsZero(qty) &&jCheckBox11.isSelected()){
+            x++;
+            if (x==1){
+                apple();
+            }
+            double price = qty*600.00;
+            total +=price;
+            jTextArea1.setText(jTextArea1.getText()+x+"-"+jLabel011.getText()+"\t\t\t"+price+"\n");
+        } else {
+            jCheckBox11.setSelected(false);
+        }
     }//GEN-LAST:event_jCheckBox11ActionPerformed
 
     private void jCheckBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox10ActionPerformed
-        // TODO add your handling code here:
+            int qty = Integer.parseInt(jSpinner12.getValue().toString());
+        if(qtyIsZero(qty) &&jCheckBox10.isSelected()){
+            x++;
+            if (x==1){
+                apple();
+            }
+            double price = qty*800.00;
+            total +=price;
+            jTextArea1.setText(jTextArea1.getText()+x+"-"+jLabel010.getText()+"\t\t\t"+price+"\n");
+        } else {
+            jCheckBox10.setSelected(false);
+        }
     }//GEN-LAST:event_jCheckBox10ActionPerformed
 
     private void jCheckBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox9ActionPerformed
-        // TODO add your handling code here:
+         int qty = Integer.parseInt(jSpinner11.getValue().toString());
+        if(qtyIsZero(qty) &&jCheckBox9.isSelected()){
+            x++;
+            if (x==1){
+                apple();
+            }
+            double price = qty*800.00;
+            total +=price;
+            jTextArea1.setText(jTextArea1.getText()+x+"-"+jLabel09.getText()+"\t\t\t"+price+"\n");
+        } else {
+            jCheckBox9.setSelected(false);
+        }
     }//GEN-LAST:event_jCheckBox9ActionPerformed
 
     private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox8ActionPerformed
-
-    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox7ActionPerformed
-
-    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox6ActionPerformed
-
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox5ActionPerformed
-
-    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox4ActionPerformed
-
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
-
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        int qty = Integer.parseInt(jSpinner1.getValue().toString());
-        if(qtyIsZero(qty)){
+          int qty = Integer.parseInt(jSpinner8.getValue().toString());
+        if(qtyIsZero(qty) &&jCheckBox8.isSelected()){
             x++;
             if (x==1){
                 apple();
             }
             double price = qty*100.00;
+            total +=price;
+            jTextArea1.setText(jTextArea1.getText()+x+"-"+jLabel08.getText()+"\t\t\t"+price+"\n");
+        } else {
+            jCheckBox8.setSelected(false);
+        }
+    }//GEN-LAST:event_jCheckBox8ActionPerformed
+
+    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
+          int qty = Integer.parseInt(jSpinner7.getValue().toString());
+        if(qtyIsZero(qty) &&jCheckBox7.isSelected()){
+            x++;
+            if (x==1){
+                apple();
+            }
+            double price = qty*15.00;
+            total +=price;
+            jTextArea1.setText(jTextArea1.getText()+x+"-"+jLabel07.getText()+"\t\t\t"+price+"\n");
+        } else {
+            jCheckBox7.setSelected(false);
+        }
+    }//GEN-LAST:event_jCheckBox7ActionPerformed
+
+    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+    int qty = Integer.parseInt(jSpinner6.getValue().toString());
+        if(qtyIsZero(qty) &&jCheckBox6.isSelected()){
+            x++;
+            if (x==1){
+                apple();
+            }
+            double price = qty*150.00;
+            total +=price;
+            jTextArea1.setText(jTextArea1.getText()+x+"-"+jLabel06.getText()+"\t\t\t"+price+"\n");
+        } else {
+            jCheckBox6.setSelected(false);
+        }
+    }//GEN-LAST:event_jCheckBox6ActionPerformed
+
+    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+        int qty = Integer.parseInt(jSpinner2.getValue().toString());
+        if(qtyIsZero(qty) &&jCheckBox5.isSelected()){
+            x++;
+            if (x==1){
+                apple();
+            }
+            double price = qty*20.00;
+            total +=price;
+            jTextArea1.setText(jTextArea1.getText()+x+"-"+jLabel05.getText()+"\t\t\t"+price+"\n");
+        } else {
+            jCheckBox5.setSelected(false);
+        }
+    }//GEN-LAST:event_jCheckBox5ActionPerformed
+
+    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
+     int qty = Integer.parseInt(jSpinner5.getValue().toString());
+        if(qtyIsZero(qty) &&jCheckBox4.isSelected()){
+            x++;
+            if (x==1){
+                apple();
+            }
+            double price = qty*120.00;
+            total +=price;
+            jTextArea1.setText(jTextArea1.getText()+x+"-"+jLabel04.getText()+"\t\t\t"+price+"\n");
+        } else {
+            jCheckBox4.setSelected(false);
+        }
+    }//GEN-LAST:event_jCheckBox4ActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+     int qty = Integer.parseInt(jSpinner4.getValue().toString());
+        if(qtyIsZero(qty) &&jCheckBox2.isSelected()){
+            x++;
+            if (x==1){
+                apple();
+            }
+            double price = qty*50.00;
+            total +=price;
+            jTextArea1.setText(jTextArea1.getText()+x+"-"+jLabel02.getText()+"\t\t\t"+price+"\n");
+        } else {
+            jCheckBox2.setSelected(false);
+        }
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+ int qty = Integer.parseInt(jSpinner3.getValue().toString());
+        if(qtyIsZero(qty) &&jCheckBox3.isSelected()){
+            x++;
+            if (x==1){
+                apple();
+            }
+            double price = qty*100.00;
+            total +=price;
+            jTextArea1.setText(jTextArea1.getText()+x+"-"+jLabel03.getText()+"\t\t\t"+price+"\n");
+        } else {
+            jCheckBox3.setSelected(false);
+        }
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        int qty = Integer.parseInt(jSpinner1.getValue().toString());
+        if(qtyIsZero(qty) &&jCheckBox1.isSelected()){
+            x++;
+            if (x==1){
+                apple();
+            }
+            double price = qty*100.00;
+            total +=price;
             jTextArea1.setText(jTextArea1.getText()+x+"-"+jLabel01.getText()+"\t\t\t"+price+"\n");
         } else {
             jCheckBox1.setSelected(false);
@@ -1471,10 +1598,16 @@ public void reset(){
     private void jTextFieldSubTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSubTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldSubTotalActionPerformed
+
+    private void btnTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTotalActionPerformed
+     if(total==0.00){
+     JOptionPane.showMessageDialog(null, "You Haven't Seleced Any Item");
+     }
+    }//GEN-LAST:event_btnTotalActionPerformed
 public void apple(){
- jTextArea1.setText("*******************Apple Resturant*******************\n"
+ jTextArea1.setText("**********************Apple Resturant**********************\n"
                  + "Time:"+jTxTime.getText() + "Date:"+jTxDate.getText()+"\n" 
-                 +"*******************************************************\n"
+                 +"***********************************************************\n"
                  +"Item name:\t\t\t"+"Price(LKR)\n");
 }
             public void setTime(){
@@ -1537,7 +1670,7 @@ public void apple(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnReset;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnTotal;
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox10;
